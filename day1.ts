@@ -3,7 +3,7 @@ const input = await Deno.readTextFile("day1.input");
 const left = [];
 const right = [];
 input.split("\n").forEach((line) => {
-  const [l, r] = line.split("   ");
+  const [l, r] = line.split(/\s+/);
   left.push(l);
   right.push(r);
 });
@@ -27,20 +27,14 @@ part1();
 
 function part2() {
   const dictionary = right.reduce((acc, curr) => {
-    if (acc[curr]) {
-      acc[curr] += 1;
-    } else {
-      acc[curr] = 1;
-    }
+    acc[curr] = (acc[curr] || 0) + 1;
     return acc;
   }, {});
-  // console.log(dictionary);
   let total = 0;
 
-  for (let i = 0; i < left.length; i++) {
-    if (dictionary[left[i]]) {
-      total += parseInt(left[i]) * dictionary[left[i]];
-    }
+  const parsedLeft = left.map(Number);
+  for (const [i, leftValue] of parsedLeft.entries()) {
+    total += leftValue * (dictionary[leftValue] || 0);
   }
 
   console.log(total);
