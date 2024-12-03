@@ -22,3 +22,9 @@ TIL Deno has a number of tools for reading files and a specific `readTextFile` f
 I didn't read the question properly and missed some of the edge cases in both parts initially. Got there in the end but took longer that I might have liked.
 
 I updated my Deno running harness. Deno.run() is a great way to run another shell command - to do this in Node I'd have to use a child_process. This was a lot cleaner!
+
+## Day 3
+
+Who said regular expression were useless? Thought I was going made for part 2 but the input had changed. If you know regex this one was pretty straightforward.
+
+No new Deno features used today - glad that all of the JS/TS knowledge is transferable though.
