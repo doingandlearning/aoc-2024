@@ -28,3 +28,9 @@ I updated my Deno running harness. Deno.run() is a great way to run another shel
 Who said regular expression were useless? Thought I was going made for part 2 but the input had changed. If you know regex this one was pretty straightforward.
 
 No new Deno features used today - glad that all of the JS/TS knowledge is transferable though.
+
+## Day 4
+
+The start of the 2x2 grids - I very rarely use these skills outside of AOC problems these days!
+
+Wanted to use the debugger and with the Deno extension in VSCode it just worked! 👨‍🍳💋
