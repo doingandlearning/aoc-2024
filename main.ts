@@ -1,20 +1,23 @@
-// ask for a day number and then run dayX.ts in watch mode
-// use only Deno built-int
-
-import { readLines } from "https://deno.land/std/io/mod.ts";
-
 const dayNumber = prompt("Enter day number: ");
-const dayFile = `${dayNumber?.padStart(2, "0")}/day${dayNumber}.ts`;
 
-const process = Deno.run({
-  cmd: ["deno", "run", "--watch", "--allow-read", dayFile],
+let dayFile = null;
+
+if (parseInt(dayNumber!) < 5) {
+  dayFile = `day${dayNumber}.ts`;
+} else {
+  dayFile = `${dayNumber?.padStart(2, "0")}/day${dayNumber}.ts`;
+}
+
+// Create the command
+const command = new Deno.Command("deno", {
+  args: ["run", "--watch", "--allow-read", dayFile],
+  stdin: "inherit", // Pass input from the terminal
+  stdout: "inherit", // Stream the stdout directly to the console
+  stderr: "inherit", // Stream the stderr directly to the console
 });
 
-await process.status();
+// Run the command
+const process = command.spawn();
+const status = await process.status;
 
-// const command = new Deno.Command("deno", {
-//   args: ["run", "--watch", "--allow-read", dayFile],
-// });
-// const { success, stdout } = await command.output();
-// console.log(success);
-// console.log(new TextDecoder().decode(stdout));
+console.log(`Process exited with status code: ${status.code}`);
