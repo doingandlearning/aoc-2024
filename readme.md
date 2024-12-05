@@ -34,3 +34,9 @@ No new Deno features used today - glad that all of the JS/TS knowledge is transf
 The start of the 2x2 grids - I very rarely use these skills outside of AOC problems these days!
 
 Wanted to use the debugger and with the Deno extension in VSCode it just worked! 👨‍🍳💋
+
+## Day 5
+
+I got tripped up a bit thinking that each page would only happen once. Found my feet though.
+
+Been appreciating Deno's TS first support. Getting helpful typing support for free is ace.
